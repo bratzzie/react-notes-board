@@ -1,29 +1,14 @@
 {
   "notes": [
     {
-      "title": "Hello",
-      "body": "Hey gus",
+      "title": "You need to water the plants and feed our cat and grandpa's cat",
+      "body": "Updated!",
       "id": 1
     },
     {
-      "title": "Hello",
-      "body": "Hey gus",
-      "id": 3
-    },
-    {
-      "title": "Hello",
-      "body": "Hey gus",
-      "id": 4
-    },
-    {
-      "title": "Hello",
-      "body": "Hey gus",
-      "id": 5
-    },
-    {
-      "title": "Hello",
-      "body": "Hey gus",
-      "id": 6
+      "title": "Heeeellloooo",
+      "body": "World!",
+      "id": 2
     }
   ]
 }

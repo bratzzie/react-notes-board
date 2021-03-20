@@ -23,14 +23,6 @@ export default class NotesBoard extends Component {
   render() {
     return (
       <>
-        <header className="bg-gray-900 shadow h-12 w-full mb-4 flex justify-center items-center">
-          <a
-            href="/"
-            className="text-gray-50 font-bold text-lg uppercase tracking-wide"
-          >
-            Notes
-          </a>
-        </header>
         <div className="w-full px-4 mb-4">
           <div className="block w-full bg-gray-800 rounded-lg h-10 outline-none p-2 flex">
             <svg

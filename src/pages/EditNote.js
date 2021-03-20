@@ -59,18 +59,10 @@ export default class EditNote extends Component {
   }
   render() {
     if (this.state.goBack) {
-      <Redirect to="/" />;
+      return <Redirect to="/" />;
     }
     return (
       <>
-        <header className="bg-gray-900 shadow h-12 w-full mb-4 flex justify-center items-center">
-          <a
-            href="/"
-            className="text-gray-50 font-bold text-lg uppercase tracking-wide"
-          >
-            Notes
-          </a>
-        </header>
         <div className="px-4 mb-4">
           <form className="px-4 py-6 rounded-lg shadow-lg">
             <label htmlFor="title" className="text-white text-sm ml-1">

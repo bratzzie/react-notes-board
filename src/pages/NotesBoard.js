@@ -1,16 +1,20 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 export default class NotesBoard extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      notes: [
-        { id: 1, title: "Best note", body: "Best note body" },
-        { id: 2, title: "Best second note", body: "Best second note body" },
-      ],
+      notes: [],
       searchQuery: "",
     };
+  }
+
+  componentDidMount() {
+    axios.get(`http://localhost:8080/notes`).then((response) => {
+      this.setState({ notes: response.data });
+    });
   }
 
   handleChange(e) {

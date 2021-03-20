@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 export default class CreateNote extends Component {
@@ -21,7 +22,14 @@ export default class CreateNote extends Component {
   handleSave(e) {
     e.preventDefault();
 
-    this.setState({ goBack: true });
+    axios
+      .post(`http://localhost:8080/notes`, {
+        title: this.state.title,
+        body: this.state.body,
+      })
+      .then(() => {
+        this.setState({ goBack: true });
+      });
   }
   handleCancel(e) {
     e.preventDefault();

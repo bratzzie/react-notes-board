@@ -1,5 +1,7 @@
+import axios from "axios";
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
+
 export default class EditNote extends Component {
   constructor(props) {
     super(props);
@@ -12,11 +14,13 @@ export default class EditNote extends Component {
   }
   componentDidMount() {
     //api call to take notes
-    // let noteId = this.props.match.params.id;
+    let noteId = this.props.match.params.id;
 
-    this.setState({
-      title: "Initial title value",
-      body: "Initial body value",
+    axios.get(`http://localhost:8080/notes/${noteId}`).then((response) => {
+      this.setState({
+        title: response.data.title,
+        body: response.data.body,
+      });
     });
   }
   handleTitleChange(e) {
@@ -28,13 +32,26 @@ export default class EditNote extends Component {
 
   handleDelete(e) {
     e.preventDefault();
-    this.setState({ goBack: true });
+
+    axios
+      .delete(`http://localhost:8080/notes/${this.props.match.params.id}`)
+      .then(() => {
+        this.setState({
+          goBack: true,
+        });
+      });
   }
 
   handleSave(e) {
     e.preventDefault();
-
-    this.setState({ goBack: true });
+    axios
+      .patch(`http://localhost:8080/notes/${this.props.match.params.id}`, {
+        title: this.state.title,
+        body: this.state.body,
+      })
+      .then(() => {
+        this.setState({ goBack: true });
+      });
   }
   handleCancel(e) {
     e.preventDefault();

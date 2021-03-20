@@ -7,13 +7,13 @@ import NotesBoard from "./pages/NotesBoard";
 export default function App() {
   return (
     <Router>
-      <>
+      <div>
         <Switch>
-          <Route path="/" component={NotesBoard} />
+          <Route exact path="/" component={NotesBoard} />
           <Route path="/notes/:id/edit" component={EditNote} />
           <Route path="/notes/create" component={CreateNote} />
         </Switch>
-      </>
+      </div>
     </Router>
   );
 }
